@@ -1,0 +1,9 @@
+1. d4 Jf6
+2. c4 e6
+3. Jf3 d5
+4. Jc3 c6
+5. cxd5 exd5
+6. Dc2 g6
+7. e3 Sf5
+8. Sd3 Sxd3
+9. Dxd3 Jg8

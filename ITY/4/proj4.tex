@@ -1,0 +1,59 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage[left=2cm, top=3cm, text={17cm, 24cm}]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage{times}
+\usepackage[unicode]{hyperref}
+\usepackage{url}
+\DeclareUrlCommand\url{\def\UrlLeft{<}\def\UrlRight{>} \urlstyle{tt}}
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+	\Huge \textsc{Vysoké učení technické v~Brně} \\
+	\huge \textsc{Fakulta informačních technologií} \\
+	\vspace{\stretch{0.382}}
+	\LARGE Typografie a~publikování\,--\,4.~projekt \\
+	\Huge Bibliografické citace
+	\vspace{\stretch{0.618}}
+\end{center}
+
+{\Large
+	\today \hfill Dominik Juriga
+}
+\end{titlepage}
+
+	\section{Typografie a její využití}
+	
+	\subsection{Sázecí systém \LaTeX}
+	Pokud chceme vytvořit dokument podle svých představ s~jednotným vzhledem, ideálním nástrojem je systém \LaTeX, jenž je nadstavbou systému \TeX. Nespornou výhodou je fakt, že správa velkých dokumentů je snadná a nevnese do dokumentu tolik chyb jako například v~MS Word. \cite{Sokol_diplomovka}
+	
+	\subsection{Historie systému \TeX}
+	Za vznik systému \TeX vděčíme profesoru Donaldu E. Knuthovi, který ho vytvořil na konci 70. let minulého století. Hlavním podnětem byl fakt, že při sázení jeho prací vznikala v~tiskárnách spousta chyb. \cite{Simek_bakalarka}
+	Jelikož však práce s~jeho systémem byla velice zdlouhavá a zložitá, několik lidí se usilovalo o~nadstavby, které by tuto práci usnadňovaly. To se podařilo Lesliemu Lamportovi, který na veřejnost uvedl velice populární nadstavbu \LaTeX. \cite{LaTeX_Educational}
+	
+	\subsection{Jak funguje \LaTeX}
+	\LaTeX \,čte a zapisuje do několika různých typů souborů, kterým by měl uživatel porozumět. Asi nejdúležitějším je zdrojový soubor, který má příponu \emph{.tex}. \cite{LaTeX_companion}
+	
+	S~tímto souborem pak pracuje hlavně překladač jazyka, který tvoří jádro systému. Výstupem je soubor s~příponou \emph{.dvi}, která značí že je možné jej otevřít na různých platformách (DeVice Independent). \cite{LaTeX_pro_zacatecniky}
+	Pokud máme ve svém dokumentu obrázky, můžou nastat při převodu do souboru \emph{.dvi} komplikace. Na ty se v~tomto souboru odkazuje externě, čemuž prohlížeč může, ale také nemusí, rozumět. \cite{Sopuch_online}
+	
+	\subsection{Proč je \LaTeX tak populární?}
+	Častým důvodem pro využití \LaTeX u je jeho schopnost oddělit práci s~obsahem od práce se stylem. To značí, že po napsání obsahu dokumentu lze styl jednoduše upravovat. Při psaní je nejdůležitější obsah, a jeho dočasným oddělením od vzhledové stránky se na něj můžeme soustředit. \cite{LaTeX_popular}
+	
+	\subsection{Matematické výrazy v~\LaTeX u}
+	Nespornou výhodou je přesné sázení matematických rovnic a vědeckých vzorců. Jednou z~hlavních možností sázení matematických rovnic je uzavření rovnice mezi znaky dolaru. Druhou možností je využití prostředí \emph{math}. \cite{LaTeX_tutorial}
+	
+	\subsection{Obrázky v~\LaTeX u}
+	\LaTeX \,také dokáže v~jisté míře kreslit obrázky. Je to však zdlouhavý proces, při kterém je potřeba znát karteziánskou souřadnou soustavu. \cite{LaTeX_digital}
+	
+	\subsection{Bibliografické citace v~\LaTeX u}
+	Systém \LaTeX \,umožňuje rozsáhlé možnosti citace pomocí programu Bib\TeX, který čte databázi s~bilbliografickými údaji a vybírá jen ty potřebné. \cite{TeX_pro_pragmatiky}
+	
+	\newpage
+	\renewcommand{\refname}{Použitá literatura}
+	\bibliographystyle{czechiso}
+	\bibliography{proj4}
+
+
+\end{document}

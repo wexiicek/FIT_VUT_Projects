@@ -1,0 +1,346 @@
+/*
+
+    ** Created by Dominik Juriga
+    ** ITW VUT FIT Projekt 1
+    ** 16.3.2018
+
+*/
+
+/* TAGS */
+
+body {
+    margin: 0 0 0 0;
+    font-family: "Crimson Text";
+}
+
+h1 {
+    margin: 0 0 0 0;
+}
+
+h1,
+h2 {
+    font-family: "Lobster";
+    color: #5D4037;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+input,
+textarea {
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #F0F0F0;
+    background-color: #FCFCFC;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: gray;
+}
+
+textarea {
+    width: 540px;
+}
+
+/* CLASSES */
+
+.logo {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    width: 198px;
+    height: 122px;
+    display: block;
+}
+
+.logo a {
+    background: url(img/logo.png) no-repeat;
+    object-fit: contain;
+    color: green;
+    width: 198px;
+    height: 122px;
+    display: block;
+    font-size: 0;
+}
+
+
+.logo a span {
+    font-size: 0;
+}
+
+.menu {
+    width: 960px;
+    margin: auto;
+    position: relative;
+}
+
+.main-text h1 {
+    padding-top: 60px;
+    font-size: 3em;
+}
+
+.main-text p {
+    font-size: 1.5em;
+}
+
+.menu-left,
+.menu-right {
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+}
+
+.info .fab {
+    margin-right: 10px;
+    font-size: 40px;
+}
+
+.menu-left ul,
+.menu-right ul {
+    list-style: none;
+    margin: 0;
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+}
+
+.menu-left ul li,
+.menu-right ul li {
+    list-style: none;
+    padding: 0 10px;
+    font-weight: normal;
+    display: table-cell;
+    text-align: center;
+}
+
+.menu-left {
+    width: 350px;
+    left: -72px;
+}
+
+.menu-right {
+    width: 350px;
+    right: 10px;
+}
+
+.row {
+    min-width: 960px;
+    width: 960px;
+    margin: auto;
+}
+
+.row .left input[type=text] {
+    width: 70%;
+}
+
+.row .right input[type=email] {
+    width: 200px;
+}
+
+.box {
+    background-color: white;
+    padding: 10px 10px 10px 10px;
+}
+
+.main {
+    width: 960px;
+    margin: auto;
+}
+
+.form {
+    text-align: left;
+    width: 540px;
+    min-width: 540px;
+    display: inline-block;
+    float: left;
+    margin-right: 40px;
+
+}
+
+.box {
+    border: 2px solid #EEEEEE;
+}
+
+.row {
+    max-width: 600px;
+}
+
+.left {
+    float: left;
+    display: block;
+    width: 300px;
+}
+
+.right {
+    display: inline-block;
+}
+
+.info {
+    display: inline-block;
+    background-color: white;
+    width: 350px;
+    text-align: left;
+}
+
+.info a {
+    color: #FF8F00;
+}
+
+.inner {
+    font-size: 1.5em;
+    width: 250px;
+    display: inline-block;
+    text-align: left;
+}
+
+.hours,
+.about {
+    float: left;
+}
+
+.about {
+    margin: 0px 105px 0px 105px;
+}
+
+.footer-content ul {
+    padding: 0 0 0 12px;
+}
+
+.footer-title {
+    border-bottom: 1px solid white;
+    font-weight: bold;
+}
+
+.newsletter {
+    margin-top: 20px;
+}
+
+.newsletter.box.row {
+    clear: both;
+	min-width: 0px;
+	max-width: 1000px;
+    width: 937px;
+    padding: 10px 10px 10px 10px;
+    margin-top: 10px;
+    text-align: left;
+}
+
+.newsletter .box .row{
+    padding-bottom: 15px;
+}
+
+.info a:hover {
+    color: #5D4037;
+}
+.newsletter.box.row input {
+    width: 740px;
+    height: 40px;
+}
+
+.newsletter.box.row button {
+    width: 190px;
+    height: 40px;
+}
+
+.submit {
+    background-color: #FF8F00;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    height: 40px;
+}
+
+header {
+    border-top: 4px solid #3E2723;
+}
+.submit:hover {
+    background-color: #5D4037;
+}
+/* IDs */
+
+#navbar {
+    background: linear-gradient(to right, #FF6F00, #FFA000);
+    height: 60px;
+}
+
+
+#navbar a {
+    color: white;
+    font-size: 1.15em;
+    font-weight: bold;
+}
+
+#page-title {
+    background-image: url(img/bg.png);
+    background-size: cover;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 449px;
+    min-width: 960px;
+    font-size: 20px;
+}
+
+#page-title h1 {
+    font-size: 80px;
+}
+
+#main {
+    background-image: url(img/pattern.png);
+    background-repeat: repeat;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+#footer {
+    background-color: #252525;
+    clear: both;
+    color: #F3F3F3;
+    font-size: 8pt;
+    padding-top: 20px;
+}
+
+#footer a {
+    color: white;
+}
+
+
+#footer .fab {
+    font-size: 40px;
+    color: #919191;
+    margin-right: 10px;
+}
+
+#footer .fab:hover {
+    color:white;
+    font-size: 40px;
+}
+
+#footer .fas {
+    font-size: 40px;
+    color: #919191;
+}
+
+#footer .fas:hover {
+    font-size: 40px;
+    color: white;
+}
+#copyright {
+    background-color: #333333;
+    text-align: center;
+    line-height: 50px;
+    font-size: 1.5em;
+    clear: both;
+}
+
+#copyright p {
+    margin: 0 0 0 0;
+}

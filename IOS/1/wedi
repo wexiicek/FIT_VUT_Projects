@@ -1,0 +1,239 @@
+#!/bin/sh
+
+# FIT VUT 1BIT - IOS PROJECT 1
+# Dominik Juriga (xjurig00)
+#           2017/18 
+
+POSIXLY_CORRECT=yes
+
+# * # * # * # * # * # * #  FUNCTIONS # * # * # * # * # * # * #
+
+#prints error and exits the script
+error()
+{
+    echo "Error while running" >&2
+    exit 1
+}
+
+#checks if realpath is installed, exits 
+checkRealpath()
+{
+    if [ -z "$(which realpath)" ];then
+        echo "Realpath is missing" >&2
+        error
+    fi
+}
+
+#makes a new log after opening a file via the script
+newLog()
+{
+    if [ -f "$ARGPATH" ];then
+        echo "${ARGPATH##*/}:$(realpath "${ARGPATH}"):$(date +%Y-%m-%d)" >> $WEDI_RC
+    fi
+}
+
+#opens the file with default EDITOR
+openEditor()
+{
+    $EDITOR "$ARGPATH"
+}
+#opens the file with default VISUAL
+openVisual()
+{
+    $VISUAL "$ARGPATH"
+}
+#opens the file with Vi
+openDefault()
+{
+    vi "$ARGPATH"
+}
+
+#opens the input file with choice of editors
+openFile()
+{
+    if [ -n "$EDITOR" ]; then
+        openEditor
+    fi
+    
+    if [ -n "$VISUAL" ]; then
+        openVisual
+    fi
+    
+    if [ -z "$EDITOR" ]; then
+        if [ -z "$VISUAL" ]; then
+            openDefault
+        fi
+    fi
+    
+    newLog #logs into file
+}
+
+#check if WEDI_RC is set
+checkWEDI()
+{
+    if ! [ -n "$WEDI_RC" ]; then
+        echo "WEDI_RC is missing." >&2
+        exit
+    fi
+}
+
+#check if WEDI_RC is existing, creates it if not
+createWEDI()
+{
+    touch "$WEDI_RC"
+    if ! [ "$?" -eq 0 ]; then
+        mkdir -p "${WEDI_RC%/*}" && touch "$WEDI_RC"
+    fi
+}
+
+#extract file list from data file
+fileList() {
+    ARGPATH=`grep "$1/[^/]*$" "$2" | cut -f1 -d ':'`
+    if ! [ -n "$ARGPATH" ]; then
+       error
+    else
+        grep "$1/[^/]*$" "$2" | cut -f1 -d ':' |sort |uniq
+        exit 0
+    fi
+}
+
+#opens the most edited file
+mostEditedFile() {
+    FILES=`grep "$1/[^/]*$" "$2" | cut -f2 -d ':' |sort |uniq -c | sort -r | awk '{print $2}'`
+    for X in $FILES ; do
+        if [ -f $X ];then
+            ARGPATH=$X
+            break
+        fi
+    done
+    if ! [ -n "$FILES" ]; then
+        error
+    else
+        openFile
+    fi
+}
+
+#lists file edited before or after certain date
+listByDate() {
+    TEMP="31415926535897932384626433832795028841971693993751"
+    FILES=`grep "$3/[^/]*$" "$2" | sort`
+    DATE=`echo "$1" | sed "s/-//g"`
+    for ITEM in $FILES ; do
+        DDATE=`echo $ITEM | cut -f3 -d ':' | sed "s/-//g"`
+        if [ $DDATE $4 $DATE ];then
+            NAME=`echo $ITEM |cut -f1 -d ':'`
+            if [ "$NAME" != "$TEMP" ];then
+                echo "$NAME"
+                TEMP="$NAME"
+            fi
+        fi
+    done
+    exit
+}
+
+#opens the file based on the date (files after.., files before..,)
+fileDate() {
+    if [ "$1" = "2" ]; then
+        listByDate "$2" "$3" "$(realpath .)" "$5"
+    elif [ "$1" = "3" ]; then
+        listByDate "$2" "$3" "$4" "$5"
+    else
+        error
+    fi
+}
+
+#open most edited file based on arguments
+openEditedFile() {
+    if [ "$1" = "1" ]; then
+        mostEditedFile "$(realpath .)" "$3"
+    elif [ "$1" = "2" ]; then
+        if [ -d $2 ]; then
+            mostEditedFile "$2" "$3"
+        fi
+    elif [ "$1" -ge 3 ]; then
+        error
+    fi
+}
+
+#lists edited files into the console
+listEditedFiles() {
+    if [ "$1" = "1" ]; then
+        fileList "$(realpath .)" "$3"
+    elif [ "$1" = "2" ]; then
+        if [ -d $2 ]; then
+            fileList "$2" "$3"
+        else
+            error
+        fi
+    elif [ "$1" -ge 2 ]; then
+        error
+    fi
+}
+
+
+# * # * # * # * # * # * #  ERROR CHECK # * # * # * # * # * # * #
+
+checkRealpath
+checkWEDI
+if ! [ -f "$WEDI_RC" ]; then
+    createWEDI
+fi
+
+# * # * # * # * # * # * #  SCRIPT BODY # * # * # * # * # * # * #
+
+ARGPATH="$1"
+
+#if input is directory
+if [ -d "$ARGPATH" ]; then
+    FILES=`grep "$1/[^/]*$" "$WEDI_RC" | sed -n '1!G;h;$p' |cut -f2 -d ':'`
+    for X in $FILES ; do
+        if [ -f $X ];then
+            ARGPATH="$X"
+            break
+        fi
+    done
+    if  ![ -n "$ARGPATH" ]; then
+        error
+    else
+        openFile
+    fi
+
+elif [ "$1" != "-m" ] && [ "$1" != "-a" ] && [ "$1" != "-b" ] && [ "$1" != "-l" ]; then
+    openFile
+fi
+
+#if launched without any arguments
+if ! [ "$#" -ne 0 ]; then
+    FILES=`grep "$(realpath .)/[^/]*$" "$WEDI_RC" | sed -n '1!G;h;$p' |cut -f2 -d ':'`
+    for X in $FILES ; do
+        if [ -f $X ];then
+            ARGPATH="$X"
+            break
+            fi
+        done
+    if ! [ -n "$ARGPATH" ]; then
+        error
+    else
+        openFile
+    fi
+fi
+
+#choice of arguments
+if [ "$1" = "-m" ]; then
+    openEditedFile "$#" "$2" "$WEDI_RC"
+fi
+
+if [ "$1" = "-a" ]; then
+    fileDate "$#" "$2" "$WEDI_RC" "$3" "-ge"
+fi
+
+if [ "$1" = "-l" ]; then
+    listEditedFiles "$#" "$2" "$WEDI_RC"
+fi
+
+if [ "$1" = "-b" ]; then
+    fileDate "$#" "$2" "$WEDI_RC" "$3" "-le"
+fi
+
+#script finished
+exit 0

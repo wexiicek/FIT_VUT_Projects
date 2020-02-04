@@ -1,0 +1,712 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+// Variables
+@import 'variables';
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+/*
+ * ITU Project 2019/2020
+ * Flight Search (Team xjurig00, xlinka01, xpukan01)
+ *
+ * Author of this file: Dominik Juriga (xjurig00), Adam Linka (xlinka01)
+ *
+ * */
+
+$searchBlue: #0075FF;
+$resultsGray: #E5E5E5;
+
+body {
+    background: $resultsGray;
+}
+
+.navbar {
+    padding: 0 !important;
+}
+
+.menuPosition {
+    position: absolute;
+    top: 25%;
+    right: 0;
+}
+
+.imgLogo {
+    height: 30px;
+    width: auto;
+    position: relative;
+    top: -5px;
+}
+
+nav {
+
+    min-height: 65px;
+
+
+    .nav_item {
+        border: none;
+        background: transparent;
+        font-size: 16px;
+        font-weight: bold;
+        color: black;
+        padding: 0 10px;
+    }
+
+    .nav_user {
+        border-left: 2px solid black;
+    }
+
+    @media (max-width: 992px) 
+        {
+            .nav_item {
+                margin-top: 5px;
+                margin-bottom: 5px;
+            }
+
+            .nav-item {
+                border-top: 1px solid white !important;
+
+            }
+            
+            .nav-item:first-child {
+                border-top: none !important;
+            }
+            
+        
+            .nav_user {
+                border-left: none;
+            }
+        }
+
+
+    .row {
+        height: 6vh;
+    }
+
+    .nav_left {
+        background: $searchBlue;
+        color: white;
+
+        a, a:visited, a:hover {
+            color: white;
+            text-decoration: none;
+        }
+    }
+
+    .nav_right {
+        text-align: right;
+        padding-top: 1em;
+
+        a, a:visited, a:hover {
+            text-decoration: none;
+        }
+    }
+
+    .logo {
+        font-size: 40px;
+        font-weight: bold;
+    }
+
+}
+
+// HOMEPAGE
+.homepage {
+    .homepage_results, .homepage_search {
+        height: 94vh;
+    }
+
+    .homepage_results {
+        overflow-y: scroll;
+        padding-top: 22px;
+
+        .results {
+
+            .result_flight:first-child {
+                background: none;
+                color: rgba(0, 0, 0, .7);
+                margin-bottom: 0;
+                padding: 5px 20px;
+            }
+
+
+            .result_flight {
+                //display
+                display: grid;
+                grid-template-columns: repeat(8, 1fr);
+
+                //style
+                background: white;
+                border-radius: 5px;
+                margin-bottom: 10px;
+                padding: 20px;
+
+                .table_airport {
+                    grid-column: 1/1;
+                }
+
+                .table_date {
+                    grid-column: 2/2;
+                }
+
+                .table_operator {
+                    grid-column: 3/3;
+                }
+
+                .table_time {
+                    grid-column: 4/4;
+                }
+
+                .table_duration {
+                    grid-column: 5/5;
+                }
+
+                .table_transfers {
+                    grid-column: 6/6;
+                }
+
+                .table_price {
+                    grid-column: 7/7;
+                }
+
+                .table_select {
+                    grid-column: 8/8;
+                    grid-row: 1/4;
+
+                    .select_flight {
+                        width: 100%;
+                        height: 100%;
+                        background: $searchBlue;
+                        color: white;
+                        border: none;
+                        outline: none;
+                        border-radius: 5px;
+                    }
+                }
+
+                hr {
+                    grid-column: 1/8;
+                    border: 1px solid rgba(0, 0, 0, .1);
+                    width: 100%;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .result_flight {
+                    //display
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+
+                    //style
+                    background: white;
+                    border-radius: 5px;
+                    margin-bottom: 10px;
+                    padding: 20px;
+
+                    .table_airport {
+                        grid-column: 1/1;
+                        //grid-row: 1/1;
+                    }
+
+                    .table_date {
+                        grid-column: 2/2;
+                        //grid-row: 1/1;
+                    }
+
+                    .table_operator {
+                        grid-column: 3/3;
+                        //grid-row: 2/2;
+                    }
+
+                    .table_time {
+                        grid-column: 1/1;
+                        //grid-row: 1/1;
+                    }
+
+                    .table_duration {
+                        grid-column: 2/2;
+                        //grid-row: 2/2;
+                    }
+
+                    .table_transfers {
+                        grid-column: 3/3;
+                        //grid-row: 2/2;
+                    }
+
+                    .table_price {
+                        grid-column: 2/2;
+
+                       // grid-row: 3/3;
+                    }
+
+                    .table_select {
+                        grid-column: 1/4;
+                        grid-row: 8/8;
+
+                        .select_flight {
+                            width: 100%;
+                            height: 100%;
+                            background: $searchBlue;
+                            color: white;
+                            border: none;
+                            outline: none;
+                            border-radius: 5px;
+                        }
+                    }
+                    hr {
+                        grid-column: 1/8;
+                        border: 1px solid rgba(0, 0, 0, .1);
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+        .result_sort {
+            background: transparent;
+            border: none;
+            padding-left: 10px;
+            color: black;
+            text-decoration: none;
+            border-radius: 10px;
+            padding: 4px 8px;
+            transition: .2s;
+            outline: none;
+        }
+    ;
+
+        .result_sort:hover {
+            border: 2px solid $searchBlue;
+        }
+
+        .active_sort {
+            background: $searchBlue;
+            color: white;
+        }
+    }
+
+    .homepage_search {
+        background: $searchBlue;
+    }
+
+    #flight_search {
+        color: white !important;
+        font-size: 16px;
+        font-weight: bold;
+
+        button[type="submit"] {
+            width: 100%;
+            height: 50px;
+            background: white;
+            border: none;
+            font-weight: bold;
+            font-size: 30px;
+            color: $searchBlue;
+            outline: none;
+        }
+
+        .search_line {
+            height: 70px;
+            vertical-align: middle;
+            border-bottom: 1px solid white;
+        }
+
+        .pass_description {
+            padding-top: 5px;
+
+            p {
+                margin-bottom: 0;
+                text-align: center;
+
+                span {
+                    font-weight: normal;
+                    color: rgba(255, 255, 255, .5);
+                }
+            }
+        }
+
+        .search_line_desc {
+            height: 100%;
+            padding-left: 10px;
+            opacity: 70%;
+            margin: 0;
+            line-height: 70px;
+        }
+
+
+
+
+        .search_form_input, input[type='number'] {
+            text-transform: uppercase;
+            outline: none;
+            height: 100%;
+            width: 100%;
+            background: transparent;
+            border: none;
+            color: white;
+            text-align: right;
+            padding-right: 10px;
+            font-size: 25px;
+        }
+
+         .input_person {
+            text-align: center !important;
+        }
+
+        input[type='number']::-webkit-inner-spin-button {
+            margin-left: 5px;
+        }
+
+        .search_form_input::placeholder {
+            color: white;
+            opacity: 50%;
+        }
+    }
+}
+
+// PROFILE
+.profile {
+    .card {
+        margin-top: 30px;
+    }
+
+    .address_item {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+
+
+        .address_desc {
+            font-weight: bold;
+            grid-column: 1/1;
+        }
+
+        .address_value {
+            grid-column: 2/2;
+        }
+    }
+
+    .tickets {
+        .result_flight:first-child {
+            color: #c6c6c6;
+            padding: 0 20px;
+        }
+
+        .result_flight {
+            //display
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+
+            //style
+            background: white;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            padding: 5px 20px;
+
+            .table_from {
+                grid-column: 1/1;
+                grid-row: 1/1;
+                line-height: 2.5;
+            }
+
+            .table_to {
+                grid-column: 2/2;
+                grid-row: 1/1;
+                line-height: 2.5;
+
+            }
+
+            .table_date {
+                grid-column: 3/3;
+                grid-row: 1/1;
+                line-height: 2.5;
+            }
+
+            .table_time {
+                grid-column: 4/4;
+                grid-row: 1/1;
+                line-height: 2.5;
+            }
+
+            .table_price {
+                grid-column: 5/5;
+                grid-row: 1/1;
+                line-height: 2.5;
+            }
+
+            .table_select {
+                grid-column: 6/6;
+                grid-row: 1/1;
+
+
+                .select_flight {
+                    width: 100%;
+                    height: 100%;
+                    background: $searchBlue;
+                    color: white;
+                    border: none;
+                    outline: none;
+                    border-radius: 5px;
+                }
+            }
+        }
+
+        @media (max-width: 768px) {
+        .result_flight {
+            //display
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+
+            //style
+            background: white;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            padding: 5px 20px;
+
+            .table_from {
+                grid-column: 1/1;
+                grid-row: 1/1;
+                line-height: 2.5;
+            }
+
+            .table_to {
+                grid-column: 2/2;
+                grid-row: 1/1;
+                line-height: 2.5;
+
+            }
+
+            .table_date {
+                grid-column: 3/3;
+                grid-row: 1/1;
+                line-height: 2.5;
+            }
+
+            .table_time {
+                grid-column: 4/4;
+                grid-row: 1/1;
+                line-height: 2.5;
+            }
+
+            .table_price {
+                grid-column: 5/5;
+                grid-row: 1/1;
+                line-height: 2.5;
+            }
+
+            .table_select {
+                grid-column: 1/6;
+                grid-row: 2/2;
+
+
+                .select_flight {
+                    width: 100%;
+                    height: 100%;
+                    background: $searchBlue;
+                    color: white;
+                    border: none;
+                    outline: none;
+                    border-radius: 5px;
+                }
+            }
+        }
+    }
+
+
+
+        hr {
+            border: 1px solid rgba(0, 0, 0, .1);
+            width: 100%;
+        }
+    }
+}
+
+//Order
+.order {
+    .order_top {
+        margin-top: 30px;
+    }
+
+    .order_line {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        .o_line_desc {
+            grid-column: 1/1;
+        }
+
+        .o_line_val {
+            grid-column: 2/2;
+        }
+    }
+
+    .flight_seat {
+        border: 1px solid #c6c8ca;
+        background: transparent;
+        outline: none;
+        border-radius: 3px;
+        margin: 3px;
+        height: 30px;
+        width: 20px;
+    }
+
+    .flight_seat:hover {
+        background: rgba(0, 0, 255, .3);
+    }
+
+    .counter, .counter:hover {
+        background: transparent;
+        width: 40px;
+        border: none;
+    }
+
+    .counter_top, .counter_top:hover {
+        width: 28px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .newly_reserved {
+        background: #00F;
+    }
+
+    .reserved {
+        background: #F00;
+    }
+}
+
+// WIDGETS
+.ui-datepicker {
+    background-color: #fff;
+    border: 1px solid #66AFE9;
+    border-radius: 4px;
+    box-shadow: 0 0 8px rgba(102, 175, 233, .6);
+    display: none;
+    margin-top: 4px;
+    padding: 10px;
+    width: 240px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px !important;
+}
+
+.ui-datepicker a,
+.ui-datepicker a:hover {
+    text-decoration: none;
+}
+
+.ui-datepicker a:hover,
+.ui-datepicker td:hover a {
+    color: #2A6496;
+    -webkit-transition: color 0.1s ease-in-out;
+    -moz-transition: color 0.1s ease-in-out;
+    -o-transition: color 0.1s ease-in-out;
+    transition: color 0.1s ease-in-out;
+}
+
+.ui-datepicker .ui-datepicker-header {
+    margin-bottom: 4px;
+    text-align: center;
+}
+
+.ui-datepicker .ui-datepicker-title {
+    font-weight: 700;
+}
+
+.ui-datepicker .ui-datepicker-prev,
+.ui-datepicker .ui-datepicker-next {
+    cursor: default;
+    font-family: 'Glyphicons Halflings';
+    -webkit-font-smoothing: antialiased;
+    font-style: normal;
+    font-weight: normal;
+    height: 20px;
+    line-height: 1;
+    margin-top: 2px;
+    width: 20px;
+    color: #999;
+}
+
+.ui-datepicker .ui-datepicker-prev {
+    float: left;
+    text-align: left;
+}
+
+.ui-datepicker .ui-datepicker-next {
+    float: right;
+    text-align: right;
+}
+
+.ui-datepicker .ui-datepicker-prev:before {
+    content: "<";
+}
+
+.ui-datepicker .ui-datepicker-next:before {
+    content: ">";
+}
+
+.ui-datepicker .ui-icon {
+    display: none;
+}
+
+.ui-datepicker .ui-datepicker-calendar {
+    table-layout: fixed;
+    width: 100%;
+}
+
+.ui-datepicker .ui-datepicker-calendar th,
+.ui-datepicker .ui-datepicker-calendar td {
+    text-align: center;
+    padding: 4px 0;
+    color: #000 !important;
+}
+
+.ui-datepicker .ui-datepicker-calendar td {
+    border-radius: 4px;
+    -webkit-transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
+    -moz-transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
+    -o-transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
+    transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
+}
+
+.ui-datepicker .ui-datepicker-calendar td:hover:not(.ui-datepicker-current-day) {
+    background-color: #eee;
+    cursor: pointer;
+}
+
+.ui-datepicker .ui-datepicker-calendar td a {
+    text-decoration: none;
+    color: #000;
+}
+
+.ui-datepicker .ui-datepicker-current-day {
+    background-color: #285e8e;
+    /* background-color: #4289cc; */
+}
+
+.ui-datepicker td.ui-datepicker-current-day a {
+    color: #fff;
+}
+
+.ui-datepicker .ui-datepicker-calendar .ui-datepicker-unselectable:hover {
+    background-color: #fff;
+    cursor: default;
+}
+
+.ui-datepicker-month {
+    border: 0px;
+    color: #000;
+}
+
+.ui-datepicker-year {
+    border: 0px;
+    color: #000;
+}
+
+.control-label:after {
+    content:"*";
+    color:red;
+ }
+
+ .sorryText {
+    font-size: 3vw;
+    text-align: center;
+    position: relative;
+    top: 100PX;
+ }

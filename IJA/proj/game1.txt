@@ -1,0 +1,5 @@
+1. Jc3 f5
+2. e4 fxe4
+3. Jxe4 Jf6
+4. Jxf6+ gxf6
+5. Dh5#

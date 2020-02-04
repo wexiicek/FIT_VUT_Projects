@@ -1,0 +1,131 @@
+.reserved {
+     background: red !important;
+ }
+
+.newly_reserved {
+    background: blue !important;
+}
+
+.seat_btn {
+    background: white;
+    width: 20px;
+    height: 30px;
+    border: 1px solid gray;
+    box-shadow: 1px 1px darkgrey;
+}
+
+.seat_btn:hover {
+    background: rgba(0, 0, 255, 0.301);
+    width: 20px;
+    height: 30px;
+    border: 1px solid gray;
+    box-shadow: 1px 1px darkgrey;
+}
+
+.seat_btn_example {
+    width: 20px;
+    height: 30px;
+    border: 1px solid gray;
+    box-shadow: 1px 1px darkgrey;
+    pointer-events: none;
+    margin-right: 5px;
+}
+
+.legend {
+    margin-right: 20px;
+}
+
+.card,
+.btn {
+    margin-bottom: 10px;
+}
+
+.ticket_id {
+    width: 25px;
+}
+
+.ticket_first_name {
+    width: 100px;
+}
+
+.ticket_price,
+.ticket_paid,
+.ticket_confirm {
+    width: 75px;
+}
+
+th {
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+th:last-child {
+    border-right: none;
+}
+
+.ticket_canceled {
+    cursor: auto !important;
+}
+
+.list_event_instance {
+    border: 1px solid #ddd;
+    padding: 2px 5px;
+    border-radius: 5px;
+}
+
+.spotlight {
+    width: 100vw;
+    height: 300px;
+    margin-bottom: 15px;
+    background: red;
+}
+
+input[readonly] {
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+.eventImg {
+    width: auto;
+    max-height: 200px;
+}
+
+.admin_user_buttons {
+    opacity: 0;
+}
+
+.user_row {
+    border-bottom: 1px solid #ddd;
+}
+
+.user_row:hover > .admin_user_buttons {
+    opacity: 1 !important;
+    transition: all .3s ease-in;
+}
+
+.admin_tab_button {
+    float: left;
+    margin-right: 10px;
+}
+
+.user_row:hover {
+    color: red;
+}
+
+
+#image-gallery .modal-footer{
+    display: block;
+  }
+
+.thumb{
+margin-top: 15px;
+margin-bottom: 15px;
+}
+
+th {
+    padding: 0 5px;
+}
+
+.control-label:after { 
+    content:"*";
+    color:red;
+ }

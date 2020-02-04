@@ -1,0 +1,1 @@
+<p>Your ticket with an id: {{ $data['id'] }} had been canceled.</p>

@@ -1,0 +1,50 @@
+.chess-space {
+    /* stage size (400)/8 spaces */
+    -fx-min-height:  65px;
+    -fx-min-width:   65px;
+    -fx-pref-height: 65px;
+    -fx-pref-width:  65px;
+    -fx-max-height:  65px;
+    -fx-max-width:   65px;
+
+    /* prevent rounded buttons */
+    -fx-background-radius: 0em;
+}
+
+.chess-space-light {
+    -fx-background-color: #5e2e00;
+}
+
+.chess-space-dark {
+    -fx-background-color: #472300;
+}
+
+.chess-space-active {
+    -fx-background-color: red;
+}
+
+.buttn {
+    -fx-min-height:  65px;
+    -fx-min-width:   65px;
+    -fx-pref-height: 65px;
+    -fx-pref-width:  65px;
+    -fx-max-height:  65px;
+    -fx-max-width:   65px;
+    -fx-background-color: rgba(1,1,1,0);
+    -fx-border: none;
+}
+
+.buttn:hover{
+    -fx-background-color: rgba(1,1,1,.2);
+}
+
+.emptybtn {
+    -fx-min-height:  65px;
+    -fx-min-width:   65px;
+    -fx-pref-height: 65px;
+    -fx-pref-width:  65px;
+    -fx-max-height:  65px;
+    -fx-max-width:   65px;
+    -fx-background-color: rgba(1,1,1,0);
+    -fx-border: none;
+}

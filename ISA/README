@@ -1,0 +1,56 @@
+HTTP nástenka, ISA 2019/2020
+
+Autor: Dominik Juriga, xjurig00@fit.vutbr.cz
+
+Popis:
+    Tento projekt umožňuje vykonávať CRUD akcie nad nástenkami a následne ich príspevkami,
+    ktoré sú uložené na serveri. Klient a server medzi sebou komunikujú pomocou
+    protokolu HTTP. Klientom prijaté HTTP hlavičky sú vypísané na štandardný chybový výstup
+    a obsah správ je vypísaný na štandardný výstup.
+
+Odovzdané súbory:
+    isaclient.cpp - zdrojový kód pre klienta
+    isaserver.cpp - zdrojový kód pre server
+    board.hpp - knižnica popisujúca nástenky a príspevky
+    target.hpp - knižnica popisujúca cieľové zariadenie
+    http_message.hpp - knižnica popisujúca HTTP hlavičku
+    Makefile - preklad projektu
+    manual.pdf - dokumentácia projektu
+    README - krátky popis projektu
+
+Preklad:
+    make - preloží projekt
+    make isaserver - preloží server
+    make isaclient - preloží klient
+    make clean - odstráni preložené súbory
+
+Argumenty:
+    isaserver:
+        [-p port] - Port, y intervalu 1024-65535, na ktorom sa spustí server
+        -h        - Vypíše pomoc
+
+    isaclient:
+        [-H host] - Host na ktorom beží server
+        [-p port] - Port, z intervalu 1024-65535, na ktorom beží server
+        [command] - Príkaz, ktorý sa má vykonať
+            Dostupné príkazy:
+                boards                            - Vypíše nástenky
+                board add <name>                  - Pridá nástenku <name>
+                board delete <name>               - Zmaže nástenku <name>
+                board list <name>                 - Vypíše príspevky na nástenke <name>
+                item add <name> <content>         - Pridá príspevok <name> s obsahom <content>
+                item delete <name> <id>           - Zmaže príspevok <id> na nástenke <name>
+                item update <name> <id> <content> - Zmení obsah príspevku <id> na nástenke <name> na <content>
+        -h        - Vypíše pomoc
+
+Spustenie:
+    isaserver -h 
+        Vypíše pomoc
+    isaserver -p [port]
+        Spustí server na porte [port]
+
+    isaclient -h 
+        Vypíše pomoc
+    isaclient -H [host] -p [port] [command]
+        Kontaktuje server bežiaci na adrese [host] a porte [port]
+        a vykoná [command]

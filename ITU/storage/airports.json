@@ -1,0 +1,143 @@
+{
+    "LZIB": {
+        "iata": "BTS",
+        "name": "M. R. Stefanik Airport",
+        "city": "Bratislava",
+        "state": "Bratislavsky",
+        "country": "SK",
+        "elevation": 436,
+        "lat": 48.1702003479,
+        "lon": 17.2126998901,
+        "tz": "Europe\/Bratislava"
+    },
+
+
+    "LKPR": {
+        "iata": "PRG",
+        "name": "V. Havel International Airport",
+        "city": "Prague",
+        "state": "Praha",
+        "country": "CZ",
+        "elevation": 1247,
+        "lat": 50.1007995605,
+        "lon": 14.2600002289,
+        "tz": "Europe\/Prague"
+    },
+
+
+    "EGLL": {
+        "iata": "LHR",
+        "name": "London Heathrow Airport",
+        "city": "London",
+        "state": "England",
+        "country": "GB",
+        "elevation": 83,
+        "lat": 51.4706001282,
+        "lon": -0.4619410038,
+        "tz": "Europe\/London"
+    },
+
+
+    "LEBL": {
+        "iata": "BCN",
+        "name": "Barcelona International Airport",
+        "city": "Barcelona",
+        "state": "Catalonia",
+        "country": "ES",
+        "elevation": 12,
+        "lat": 41.2971000671,
+        "lon": 2.0784599781,
+        "tz": "Europe\/Madrid"
+    },
+
+
+    "LFPG": {
+        "iata": "CDG",
+        "name": "Charles de Gaulle International Airport",
+        "city": "Paris",
+        "state": "Ile-de-France",
+        "country": "FR",
+        "elevation": 392,
+        "lat": 49.0127983093,
+        "lon": 2.5499999523,
+        "tz": "Europe\/Paris"
+    },
+
+
+    "LZHL": {
+        "iata": "HOL",
+        "name": "Holic Airport",
+        "city": "Holic",
+        "state": "Trnavsky",
+        "country": "SK",
+        "elevation": 520,
+        "lat": 48.8103,
+        "lon": 17.1338,
+        "tz": "Europe\/Bratislava"
+    },
+
+
+    "LZPP": {
+        "iata": "PZY",
+        "name": "Piestany Airport",
+        "city": "Piestany",
+        "state": "",
+        "country": "SK",
+        "elevation": 545,
+        "lat": 48.6251983643,
+        "lon": 17.8283996582,
+        "tz": "Europe\/Bratislava"
+    },
+
+
+    "9NY4": {
+        "iata": "JFK",
+        "name": "Kennedy Airfield",
+        "city": "Kennedy",
+        "state": "New York",
+        "country": "US",
+        "elevation": 1760,
+        "lat": 42.1007995605,
+        "lon": -79.0818023682,
+        "tz": "America\/New_York"
+    },
+
+
+    "CYVR": {
+        "iata": "YVR",
+        "name": "Vancouver International Airport",
+        "city": "Vancouver",
+        "state": "British Columbia",
+        "country": "CA",
+        "elevation": 14,
+        "lat": 49.193901062,
+        "lon": -123.1839981079,
+        "tz": "America\/Vancouver"
+    },
+
+
+    "KLAX": {
+        "iata": "LAX",
+        "name": "Los Angeles International Airport",
+        "city": "Los Angeles",
+        "state": "California",
+        "country": "US",
+        "elevation": 125,
+        "lat": 33.94250107,
+        "lon": -118.4079971,
+        "tz": "America\/Los_Angeles"
+    },
+
+
+    "LKTB": {
+        "iata": "BRQ",
+        "name": "Brno-Turany Airport",
+        "city": "Brno",
+        "state": "South-Moravian",
+        "country": "CZ",
+        "elevation": 778,
+        "lat": 49.1512985229,
+        "lon": 16.6944007874,
+        "tz": "Europe\/Prague"
+    }
+}

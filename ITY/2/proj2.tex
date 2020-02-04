@@ -1,0 +1,135 @@
+\documentclass[11pt,a4paper,twocolumn]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage[IL2]{fontenc}
+\usepackage{times}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[width=18.00cm, height=25.00cm, left=1.50cm, top=2.50cm]{geometry}
+
+\newtheorem{definition}{Definice}
+\newtheorem{sentence}{Věta}
+
+\author{Dominik Juriga (xjurig00)}
+\title{Typografie a publikovani}
+
+\begin{document}
+	\begin{titlepage}
+		\begin{center}
+			{\Huge \textsc{Fakulta informačních technologií\\
+					[0,4em]Vysoké učení technické v Brně}}\\ \vspace{\stretch{0.38}}
+			{\LARGE Typografie a publikování – 2. projekt\\[0,3em]Sazba dokumentů a matematických výrazů}\\
+			\vspace{\stretch{0.62}}
+		\end{center}
+		{\Large 2019 \hfill
+			Dominik Juriga (xjurig00)}
+	\end{titlepage}
+	\begin{twocolumn}
+		\section*{Úvod}\label{page1}
+		V této úloze si vyzkoušíme sazbu titulní strany, matematic\-kých vzorců, prostředí a dalších textových struktur obvyklých pro technicky zaměřené texty (například rovnice (\ref{rovnice}) nebo Definice \ref{definice1} na straně \pageref{page1}). Pro odkazovaní na vzorce a struktury zásadně používáme příkaz \verb|\label| a \verb|\ref| případne \verb|\pageref| pokud se chceme odkázat na stranu výskytu.
+		
+		Na titulní straně je využito sázení nadpisu podle potického středu s využitím zlatého řezu. Tento postup byl probírán na přednášce. Dále je použito odřádkování se zadanou relativní velikostí 0.4 em a 0.3 em.
+		\section{Matematický text}
+		Nejprve se podíváme na sázení matematických symbolů\linebreak a výrazů v plynulém textu včetně sazby definic a vět s vy\-užitím balíku \texttt{amsthm}. Rovněž použijeme poznámku pod čarou s použitím příkazu \verb|\footnote|. Někdy je vhodné použít konstrukci \verb|\mbox{}|, která říká, že text nemá být zalomen.
+		
+		\theoremstyle{definition}
+		\begin{definition}\label{definice1}
+			{\normalfont Zásobníkový automat (ZA) \emph{je definován jako sedmice tvaru} $A = (Q, \Sigma, \Gamma, \delta, q\textsubscript{0}, Z\textsubscript{0}, F)$\emph{, kde:}}
+			
+			\begin{itemize}
+				\item $Q$  je konečná \normalfont množina vnitřních (řídicích) stavů,
+				\item $\Sigma$ \emph{je konečná} \normalfont vstupní abeceda,
+				\item $\Gamma$ \emph{je konečná} zásobníková abeceda,
+				\item $\delta$ \emph{je} přechodová funkce $Q \times (\Sigma \cup \{\epsilon\}) \times \Gamma \rightarrow 2^{Q \times \Gamma ^*}$,
+				\item $q$\textsubscript{0} $\in$ $Q$ \emph{je} počáteční stav, $Z\textsubscript{0} \in \Gamma$ je startovací symbol zásobníku $a\ F \subseteq Q$ \emph{je množina} koncových stavů.
+			\end{itemize}
+		
+		\normalfont Nechť $P = (Q, \Sigma, \Gamma, \delta, q\textsubscript{0}, Z\textsubscript{0}, F)$ je zásobníkový auto\-mat. \emph{Konfigurací} nazveme trojici\,$(q, w, \alpha)\in Q\times\Sigma^*\times\Gamma^*$, kde $q$ je aktuální stav vnitřního řízení, $w$ je dosud nezpra\-covaná část vstupního řetězce a $\alpha = Z_{i_1}Z_{i_2}...Z_{i_k}$ je obsah zásobníku\footnote{$Z_{i_1}$ je vrchol zásobníku}.
+			\end{definition}
+			
+		
+		
+		\subsection{Podsekce obsahující větu a odkaz}
+		
+		\begin{definition}\label{definice2}
+			 \normalfont Řetězec $w$ nad abecedou $\Sigma$ je přijat ZA $A$ \emph{jest\-liže $(q_{0}, w, Z_{0}) \underset{A}{\overset{*}{\vdash}} (q_{F}, \epsilon, \gamma)$ pro nějaké $\gamma \in \Gamma^*$ a $q_{F} \in F$. Množinu $L(A) = \{w\ |\  w$ je přijat ZA $A\} \subseteq \Sigma^* $nazýváme} \normalfont jazyk přijímaný TS $M$.
+		\end{definition}
+		Nyní si vyzkoušíme sazbu vět a důkazů opět s použitím balíku \texttt{amsthm}.
+		
+		\begin{sentence}
+			Třída jazyků, které jsou přijímány ZA, odpovídá \normalfont bezkontextovým jazykům.
+		\end{sentence} \vspace{-1em}
+		\noindent \begin{proof}V důkaze vyjdeme z Definice \ref{definice1} a \ref{definice2}. \end{proof}
+		\section{Rovnice a odkazy}
+		Složitější matematické formulace sázíme mimo plynulý text. Lze umístit několik výrazů na jeden řádek, ale pak je třeba tyto vhodně oddělit, například příkazem \verb|\quad|. \\ \medskip
+		
+		\noindent\mbox{$\sqrt[i]{x^3_i}$\quad kde $x_{i}$ je $i$-té sudé číslo splňující\quad$x^{2-x^{i^{2}}_{i}}_{i}\leq x^{y^{3}_{i}}_{i}$}\vspace{0.4em}
+		
+		V rovnici (1) jsou využity tři typy závorek s různou explicitně definovanou velikostí.
+		
+		\begin{eqnarray}\label{rovnice}
+		x &= & \bigg[\Big\{\big[a + b\big] * c \Big\}^d \ominus 1 \bigg]^{1/2}  \\	
+		y &= & \lim\limits_{x \to \infty} \frac{\frac{1}{\log_{10} x}}{\mathrm{sin}^2x + \mathrm{cos}^2x} \nonumber		
+		\end{eqnarray}
+		
+		V této větě vidíme, jak vypadá implicitní vysázení limity $\mathrm{lim}_{n \to \infty} f(n)$ v normálním odstavci textu. Podobně je to i s dalšími symboly jako $\prod^{n}_{i=1} 2^{i}$ či $\bigcap_{A\in \mathcal{B}}A$. V pří-\\pade vzorců $\lim\limits_{n \to \infty}f(n)$ a $\underset{i=1}{\overset{n}{\prod}} 2^{i}$ jsme si vynutili méně úspornou sazbu příkazem \verb|\limits|.
+		
+		\begin{eqnarray}
+			\int _b^ag(x)dx &= & -\int\limits _a^bf(x)dx \\
+			\overline{\overline{A \wedge B}} &\Leftrightarrow & \overline{\overline{A} \vee \overline{B}}
+		\end{eqnarray}
+	
+		\section{Matice}
+		Pro sázení matic se velmi často používá prostředí \verb|array| a závorky (\verb|\left|, \verb|\right|).
+		$$\left[
+		\begin{array}{c c c}
+			&\widehat{\beta + \gamma} & \hat{\pi}\\
+			\vec{a}&\overleftrightarrow{AC}
+		\end{array}
+		\right] = 1 \Longleftrightarrow \mathbb{Q} = \mathbf{R}$$
+		\mbox{
+		A $= \begin{vmatrix}
+		\ a_{11} & a_{12} & \cdots & a_{1n}\ \\
+		\ a_{21} & a_{22} & \cdots & a_{2n}\ \\
+		\ \vdots & \vdots & \ddots & \vdots\ \\
+		\ a_{m1} & a_{m2} & \cdots & a_{mn}\ 
+		\end{vmatrix}
+		= \begin{matrix}
+		\ t & u \  \\
+		\ v & w \ 
+		\end{matrix}
+		= tw - uv$
+	} \\
+
+		Prostředí \verb|array| lze úspěšně využít i jinde.
+		
+		$$
+		\binom{n}{k}
+		 = 
+		\left\{
+		\begin{array} {l l}
+		0 &$pro $ k < 0 $ nebo $ k > n \\ 
+		\frac{n!}{k!(n-k)!} & $pro $ 0 \leq k \leq n
+		
+		\end{array}
+		\right.
+		$$
+		
+	\end{twocolumn}	
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
